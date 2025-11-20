@@ -17,7 +17,6 @@ function App() {
   ]);
 
   const totalTime = records.reduce((sum, record) => sum + record.time, 0);
-  console.log(totalTime)
 
   return (
     <div className="container">
