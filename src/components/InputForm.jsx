@@ -8,7 +8,7 @@ export const InputForm = (props) => {
     const [error, setError] = useState('');
 
     const handleAdd = () => {
-        if (title === '' || time === 0) {
+        if (title === '' || time === 0 || time === '') {
             setError('入力されていない項目があります。');
             return;
         }
@@ -32,13 +32,13 @@ export const InputForm = (props) => {
                     type="number"
                     min="0"
                     value={time}
-                    onChange={(e) => setTime(Number(e.target.value))}
+                    onChange={(e) => setTime(e.target.value === '' ? '' : Number(e.target.value))}
                 />
                 <button onClick={handleAdd}>登録</button>
             </div>
             {error && <p style={{ color: 'red' }}>{error}</p>}
             学習内容: {title}<br />
-            時間: {time}
+            時間: {time === '' ? 0 : time}
         </div>
     );
 }
