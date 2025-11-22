@@ -9,7 +9,7 @@ export const InputForm = (props) => {
 
     const handleAdd = () => {
         if (title === '' || time === 0) {
-            setError('学習内容と時間は必須です。');
+            setError('入力されていない項目があります。');
             return;
         }
         setError('');

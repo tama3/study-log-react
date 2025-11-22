@@ -25,7 +25,7 @@ export const StudyLogApp = () => {
         try {
             // 事前にsupabaseでRLS(行レベルセキュリティ)のselectポリシーを作成しないと空配列が返ってくるだけ
             const { data } = await supabase.from('study-record').select(`id, title, time`);
-            setRecords(data);
+            setRecords(data || []);
         } catch (error) {
             console.log('データの取得中に予期せぬエラーが発生しました。', error);
         } finally {
