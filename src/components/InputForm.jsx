@@ -2,10 +2,17 @@ import { useState } from "react";
 
 export const InputForm = (props) => {
     const { onAddRecord } = props;
+
     const [title, setTitle] = useState('');
     const [time, setTime] = useState(0);
+    const [error, setError] = useState('');
 
     const handleAdd = () => {
+        if (title === '' || time === 0) {
+            setError('学習内容と時間は必須です。');
+            return;
+        }
+        setError('');
         onAddRecord(title, time);
         setTitle('');
         setTime(0);
@@ -24,11 +31,12 @@ export const InputForm = (props) => {
                 <input
                     type="number"
                     min="0"
-                    value={time} 
+                    value={time}
                     onChange={(e) => setTime(Number(e.target.value))}
                 />
                 <button onClick={handleAdd}>登録</button>
             </div>
+            {error && <p style={{ color: 'red' }}>{error}</p>}
             学習内容: {title}<br />
             時間: {time}
         </div>
