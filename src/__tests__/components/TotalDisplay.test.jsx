@@ -7,6 +7,6 @@ describe("TotalDisplay", () => {
         render(<TotalDisplay totalTime={100} />);
         expect(screen.getByText("合計時間")).toBeInTheDocument();
         expect(screen.getByText("100")).toBeInTheDocument();
-        expect(screen.getByText("/1000(h)")).toBeInTheDocument();
+        expect(screen.getByText("/1000(時間)")).toBeInTheDocument();
     });
 });

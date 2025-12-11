@@ -4,7 +4,7 @@ export const TotalDisplay = (props) => {
         <div>
             <p>合計時間</p>
             <p>{totalTime}</p>
-            <p>/1000(h)</p>
+            <p>/1000(時間)</p>
         </div>
     );
 }
